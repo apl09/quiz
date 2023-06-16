@@ -1,9 +1,9 @@
-let questions = [];
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 let currentQuestionIndex = 0;
 let score = 0;
+
 
 const getQuestions = () => {
 axios
@@ -34,6 +34,7 @@ const startQuiz = () => {
   showQuestion();
 };
 
+
 const showQuestion = () => {
   resetState();
   let currentQuestion = questions[currentQuestionIndex];
@@ -52,12 +53,14 @@ const showQuestion = () => {
   });
 };
 
+
 const resetState = () => {
   nextButton.style.display = "none";
   while (answerButtons.firstChild) {
     answerButtons.removeChild(answerButtons.firstChild);
   }
 };
+
 
 const selectAnswer = (e) => {
   const selectedBtn = e.target;
@@ -77,12 +80,20 @@ const selectAnswer = (e) => {
   nextButton.style.display = "block";
 };
 
+
 const showScore = () => {
   resetState();
-  questionElement.innerHTML = `Your score is ${score} out of ${questions.length}!!`;
   nextButton.innerHTML = "Play Again";
   nextButton.style.display = "block";
+  if (score <= 4) {questionElement.innerHTML = 
+    `Your score is ${score} out of ${questions.length} you are fucking stupid!!`;}
+  else if (score > 4 && score <= 7) {questionElement.innerHTML =
+     `Your score is ${score} out of ${questions.length} not bad, but you can do better!!`;}
+  else if (score > 7) {questionElement.innerHTML = 
+    `Your score is ${score} out of ${questions.length} you are a genious, congrats!!`;
+  }
 };
+
 
 const handleNextButton = () => {
   currentQuestionIndex++;
@@ -92,6 +103,7 @@ const handleNextButton = () => {
     showScore();
   }
 };
+
 
 nextButton.addEventListener("click", () => {
   if (currentQuestionIndex < questions.length) {
