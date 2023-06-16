@@ -1,3 +1,6 @@
+
+const divGraphic = document.querySelector('.hide')
+const myChart = document.querySelector('#myChart')
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
@@ -6,35 +9,34 @@ let score = 0;
 
 
 const getQuestions = () => {
-axios
-.get("https://opentdb.com/api.php?amount=10&category=23")
-.then((res) => {
-questions = res.data.results.map((question) => {
-const answers = [...question.incorrect_answers.map((answer) => ({
-text: answer,
-correct: false,
-})),
-{
-text: question.correct_answer,
-correct: true,
-},
-];
-
-        const randomAnswers = answers.sort(() => Math.random() - 0.5);
-
-        return {
-          question: question.question,
-          answers: randomAnswers,
-        };
-      });
-      startQuiz();
-    })
+  axios
+  .get("https://opentdb.com/api.php?amount=10&category=23")
+  .then((res) => {
+    questions = res.data.results.map((question) => {
+    const answers = [...question.incorrect_answers.map((answer) => ({
+    text: answer,
+    correct: false,
+  })),
+  {
+    text: question.correct_answer,
+    correct: true,
+  },
+  ];
+    const randomAnswers = answers.sort(() => Math.random() - 0.5);
+    return {
+    question: question.question,
+    answers: randomAnswers,
+  };
+  });
+    startQuiz();
+  })
     .catch((err) => console.error(err));
 };
 
 getQuestions();
 
 const startQuiz = () => {
+  divGraphic.classList.add('hide')
   currentQuestionIndex = 0;
   score = 0;
   nextButton.innerHTML = "Next";
@@ -64,7 +66,7 @@ const showQuestion = () => {
 const resetState = () => {
   nextButton.style.display = "none";
   while (answerButtons.firstChild) {
-    answerButtons.removeChild(answerButtons.firstChild);
+  answerButtons.removeChild(answerButtons.firstChild);
   }
 };
 
@@ -90,6 +92,7 @@ const selectAnswer = (e) => {
 
 const showScore = () => {
   resetState();
+  divGraphic.classList.remove('hide'); 
   nextButton.innerHTML = "Play Again";
   nextButton.style.display = "block";
   if (score <= 4) {questionElement.innerHTML = 
@@ -119,3 +122,28 @@ nextButton.addEventListener("click", () => {
     startQuiz();
   }
 });
+
+
+const labels = ['pregunta 1', 'pregunta 2', 'pregunta 3', 'pregunta 4', 'pregunta 5', 
+'pregunta 6', 'pregunta 7','pregunta 8', 'pregunta 9', 'pregunta 10'];
+
+
+const data = {
+  labels: labels,
+  datasets: [{
+    label: 'Quiz Results',
+    backgroundColor: 'rgb(255, 99, 132)',
+    borderColor: ' rgb(34,92,98);',
+    data: [],
+  }]
+};
+
+const config = {
+  type: 'bar',
+  data: data,
+  options: {}
+};
+
+
+
+const myChartConfig = new Chart('myChart', config);
