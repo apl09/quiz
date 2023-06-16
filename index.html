@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+
     <title>Quiz</title>
 </head>
 <body>
@@ -18,7 +21,11 @@
                 <button class="btn">answer4</button>
             </div>
             <button id="next-btn">next</button>
-        </div>    
+        </div>
+        <div class="container">
+            <canvas id="myChart"></canvas>
+        </div>
+        
     </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="index.js"></script>

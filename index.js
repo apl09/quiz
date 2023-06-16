@@ -10,15 +10,22 @@ axios
 .get("https://opentdb.com/api.php?amount=10&category=23")
 .then((res) => {
 questions = res.data.results.map((question) => {
-return { question: question.question,
-answers: [ ...question.incorrect_answers.map((answer) => ({
+const answers = [...question.incorrect_answers.map((answer) => ({
 text: answer,
 correct: false,
 })),
 {
 text: question.correct_answer,
 correct: true,
-},],};
+},
+];
+
+        const randomAnswers = answers.sort(() => Math.random() - 0.5);
+
+        return {
+          question: question.question,
+          answers: randomAnswers,
+        };
       });
       startQuiz();
     })
