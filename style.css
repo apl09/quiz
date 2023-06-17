@@ -5,17 +5,24 @@
 }
 
 body {
-    background: rgb(34,92,98);    
+    background: url(fondo.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+      
 }
 
 .app {
+    opacity: 0.9;
     background: white;
     width: 90%;    
     max-width: 700px;
-    margin: 100px auto 0;
+    margin: 200px auto 0;
     border-radius: 10px;
     padding: 30px;
-    box-shadow: 2px 2px 10px white;
+    border: 1px solid black;
+    
 }
 
 .app h1 {
