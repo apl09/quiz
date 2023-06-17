@@ -77,8 +77,10 @@ const selectAnswer = (e) => {
   if (isCorrect) {
     selectedBtn.classList.add("correct");
     score++;
+    quizResults.push(true)        
   } else {
     selectedBtn.classList.add("incorrect");
+    quizResults.push(false)
   }
   Array.from(answerButtons.children).forEach((button) => {
     if (button.dataset.correct === "true") {
@@ -124,19 +126,21 @@ nextButton.addEventListener("click", () => {
 });
 
 
-const labels = ['pregunta 1', 'pregunta 2', 'pregunta 3', 'pregunta 4', 'pregunta 5', 
-'pregunta 6', 'pregunta 7','pregunta 8', 'pregunta 9', 'pregunta 10'];
-
+const labels = ['1. Question', '2. Question', '3. Question', '4. Question', '5. Question', 
+'6. Question', '7. Question','8. Question', '9. Question', '10. Question'];
+const quizResults = [];
 
 const data = {
   labels: labels,
   datasets: [{
-    label: 'Quiz Results',
-    backgroundColor: 'rgb(255, 99, 132)',
-    borderColor: ' rgb(34,92,98);',
-    data: [],
+    label: 'Quiz Results',    
+    backgroundColor: 'green',
+    borderColor: ' rgb(34,92,98)',
+    color: ' rgb(34,92,98, 1)',
+    data: quizResults,
   }]
 };
+
 
 const config = {
   type: 'bar',
