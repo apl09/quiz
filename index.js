@@ -1,9 +1,11 @@
 
-const divGraphic = document.querySelector('.hide')
+const divGraphic = document.querySelector('#chart')
 const myChart = document.querySelector('#myChart')
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
+const startButton = document.getElementById("start-btn");
+const questionContainer = document.getElementById("question-container")
 let currentQuestionIndex = 0;
 let score = 0;
 
@@ -28,7 +30,6 @@ const getQuestions = () => {
     answers: randomAnswers,
   };
   });
-    startQuiz();
   })
     .catch((err) => console.error(err));
 };
@@ -37,6 +38,8 @@ getQuestions();
 
 const startQuiz = () => {
   divGraphic.classList.add('hide')
+  questionContainer.classList.remove("hide")
+  startButton.classList.add("hide")
   currentQuestionIndex = 0;
   score = 0;
   nextButton.innerHTML = "Next";
@@ -151,3 +154,4 @@ const config = {
 
 
 const myChartConfig = new Chart('myChart', config);
+startButton.addEventListener("click",startQuiz)

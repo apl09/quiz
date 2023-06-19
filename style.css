@@ -18,9 +18,9 @@ body {
     background: white;
     width: 90%;    
     max-width: 700px;
-    margin: 200px auto 0;
+    margin: 5% auto 0;
     border-radius: 10px;
-    padding: 30px;
+    padding: 25px;
     border: 1px solid black;
     
 }
@@ -75,6 +75,18 @@ body {
     border-radius: 5px;
     cursor: pointer;
     display: none;
+}
+
+#start-btn {
+    color: white;
+    background-color: rgb(34,92,98);
+    width: 150px;
+    border: 0;
+    padding: 10px;
+    margin: 20px auto 0;
+    border-radius: 5px;
+    cursor: pointer;
+    
 }
 
 .correct {
