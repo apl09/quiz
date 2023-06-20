@@ -39,8 +39,8 @@ const getQuestions = () => {
 getQuestions();
 
 
-const submitPlayer = (e) =>{
-  e.preventDefault()
+const submitPlayer = () =>{
+  
   localStorage.setItem('name',player.value);
 }
 
@@ -128,6 +128,7 @@ const handleNextButton = () => {
     showScore();
   }
 };
+
 
 submit.addEventListener('click', submitPlayer)
 startButton.addEventListener("click",startQuiz)
