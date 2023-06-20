@@ -32,6 +32,12 @@ body {
     font-size: 2.5rem;
 }
 
+.controls {
+    display:flex;
+    flex-direction: c;
+
+}
+
 .quiz {
     padding: 20px 0;
 }
@@ -108,8 +114,8 @@ body {
 }
 
 #player {
-    color: white;
-    background-color: rgb(34,92,98);
+    color: rgb(34,92,98);
+    background-color:white;
     width: 150px;
     border: 0;
     padding: 10px;
