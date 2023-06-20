@@ -1,4 +1,5 @@
-
+const player = document.getElementById("player");
+const submit = document.getElementById("submit");
 const divGraphic = document.querySelector('#chart')
 const myChart = document.querySelector('#myChart')
 const questionElement = document.getElementById("question");
@@ -8,6 +9,7 @@ const startButton = document.getElementById("start-btn");
 const questionContainer = document.getElementById("question-container")
 let currentQuestionIndex = 0;
 let score = 0;
+
 
 
 const getQuestions = () => {
@@ -36,7 +38,14 @@ const getQuestions = () => {
 
 getQuestions();
 
+
+const submitPlayer = () =>{
+  localStorage.setItem(player.value, JSON.stringify(player.value));
+}
+
 const startQuiz = () => {
+  submit.classList.add('hide')
+  player.classList.add('hide')
   divGraphic.classList.add('hide')
   questionContainer.classList.remove("hide")
   startButton.classList.add("hide")
@@ -119,7 +128,8 @@ const handleNextButton = () => {
   }
 };
 
-
+submit.addEventListener('click', submitPlayer)
+startButton.addEventListener("click",startQuiz)
 nextButton.addEventListener("click", () => {
   if (currentQuestionIndex < questions.length) {
     handleNextButton();
@@ -154,4 +164,3 @@ const config = {
 
 
 const myChartConfig = new Chart('myChart', config);
-startButton.addEventListener("click",startQuiz)
