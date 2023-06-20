@@ -39,8 +39,9 @@ const getQuestions = () => {
 getQuestions();
 
 
-const submitPlayer = () =>{
-  localStorage.setItem(player.value, JSON.stringify(player.value));
+const submitPlayer = (e) =>{
+  e.preventDefault()
+  localStorage.setItem('name',player.value);
 }
 
 const startQuiz = () => {
@@ -110,11 +111,11 @@ const showScore = () => {
   nextButton.innerHTML = "Play Again";
   nextButton.style.display = "block";
   if (score <= 4) {questionElement.innerHTML = 
-    `Your score is ${score} out of ${questions.length} you are fucking stupid!!`;}
+    `${localStorage.getItem('name')} your score is ${score} out of ${questions.length} you are fucking stupid!!`;}
   else if (score > 4 && score <= 7) {questionElement.innerHTML =
-     `Your score is ${score} out of ${questions.length} not bad, but you can do better!!`;}
+     `${localStorage.getItem('name')} your score is ${score} out of ${questions.length} not bad, but you can do better!!`;}
   else if (score > 7) {questionElement.innerHTML = 
-    `Your score is ${score} out of ${questions.length} you are a genious, congrats!!`;
+    `${localStorage.getItem('name')} your score is ${score} out of ${questions.length} you are a genious, congrats!!`;
   }
 };
 

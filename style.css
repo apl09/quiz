@@ -85,8 +85,36 @@ body {
     padding: 10px;
     margin: 20px auto 0;
     border-radius: 5px;
+    cursor: pointer;    
+}
+#start-btn:hover {
+    background-color: rgb(56, 133, 142)
+}
+
+
+#submit {
+    color: white;
+    background-color: rgb(34,92,98);
+    width: 150px;
+    border: 0;
+    padding: 10px;
+    margin: 20px auto 0;
+    border-radius: 5px;
     cursor: pointer;
-    
+}
+
+#submit:hover {
+    background-color: rgb(56, 133, 142)
+}
+
+#player {
+    color: white;
+    background-color: rgb(34,92,98);
+    width: 150px;
+    border: 0;
+    padding: 10px;
+    margin: 20px auto 0;
+    border-radius: 5px;
 }
 
 .correct {
