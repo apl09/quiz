@@ -39,10 +39,10 @@ const getQuestions = () => {
 getQuestions();
 
 
-const submitPlayer = () =>{
-  
+const submitPlayer = () =>{  
   localStorage.setItem('name',player.value);
 }
+
 
 const startQuiz = () => {
   submit.classList.add('hide')
