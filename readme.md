@@ -45,16 +45,6 @@
 
 <strong>Documentation:</strong> I maintained a detailed record of our research process, including the steps followed, the problems encountered, and the implemented solutions.
 
-## 📊 Bootstrap Practice & Validations
-
-<p>I created a QUIZ APP that meets the following requirements:</p>
-
-<ul>
-    <li>[x] DOM manipulation</li>           
-    <li>[x] Use of the local storage, put information, then retrieve it</li>
-    <li>[x] Chart JS to implement the results with graphics with real info from the quiz</li>
-    <li>[x] SPA to change between views without the need of changing to diferent pages</li>     
-</ul>
 
 ## 🧠 Conclusions
 
