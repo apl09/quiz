@@ -27,13 +27,6 @@
   <li><strong>Customize</strong> and adapt styles.</li>
 </ol>
 
-### 📁 Views
-
-<ol>
-  <li>Home</li>
-  <li>Log in</li>
-  <li>Cards</li>
-</ol>
 
 ### 🔬 Methodology
 
